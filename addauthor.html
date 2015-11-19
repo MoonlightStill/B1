@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>添加作者</title>
+    </head>
+    <body>
+        <form action="/saveauthor/" method="post">
+        {% csrf_token %}
+        <label for="author_ID">作者ID：</label>
+        <input type="text" id="author_ID" name="author_ID" />
+        <label for="author_name">作者姓名：</label>
+        <input type="text" id="author_name" name="author_name" />
+        <label for="author_age">作者年龄  ：</label>
+        <input type="text" id="author_age" name="author_age" />
+        <label for="author_country">作者国家  ：</label>
+        <input type="text" id="author_country" name="author_country" />
+        <br />
+        <br />
+        <br />
+        <input type="submit" value="保存" />
+        <br />
+        <br />
+        </form>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="search/html; charset=utf-8"/>
+        <title>查询</title>
+        <style type="text/css">
+        h1 {color: red}
+        p {color: blue}
+        </style>
+    </head>
+    <body>
+        <h1 align="center">
+
+        <big>请输入作者姓名</big>
+
+        </h1>
+        <hr />
+        <form alin="center" action="/showauthor/" method="post">
+        {% csrf_token %}
+        <label for="author_name">作者姓名：</label>
+        <input type="text" id="author_name" name="author_name" />
+        <input type="submit" value="查找" />
+        </form>
+
+
+    </body>
+</html>

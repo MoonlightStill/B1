@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="index/html; charset=utf-8"/>
+        <title>图书数据库</title>
+        <style type="text/css">
+        h1 {color: red}
+        p {color: blue}
+        </style>
+    </head>
+    <body bgcolor = orange>
+        <h1 align="center">
+
+        <big>欢迎来到图书数据库</big>
+
+        </h1>
+        <hr />
+        <form action="/addauthor/" method="post">
+        {% csrf_token %}
+        <input type="submit" value="添加作者" />
+        </form>
+
+        <form action="/addbook/" method="post">
+        {% csrf_token %}
+        <input type="submit" value="添加图书" />
+        </form>
+
+        <form action="/search/" method="post">
+        {% csrf_token %}
+        <input type="submit" value="查找作者" />
+        </form>
+        {% if book_list %}
+            {% for b in book_list %}
+                {%url "showbook" b.ISBN as detail_url %}
+                <li><a href="{{detail_url}}">{{b.Title}}</a></li>
+                {%url "delete" b.ISBN as delete_url %}
+                 <li><a href="{{delete_url}}">删除</a></li>
+                {%url "refresh" b.ISBN as refresh_url %}
+                 <li><a href="{{refresh_url}}">更新</a></li>
+            {% endfor %}
+        {% endif %}
+
+    </body>
+</html>
